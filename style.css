@@ -49,12 +49,12 @@ a:active {
 p, li, a {
   font-family: "Jost", sans-serif;
   --font-base-size: 0.12em;
-  font-size: clamp(13px, var(--font-base-size) + 1.5vw, 36px);
+  font-size: clamp(14px, var(--font-base-size) + 1.5vw, 36px);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Koulen", cursive;
-  font-size: clamp(16px, var(--font-base-size) + 2vw, 50px);
+  font-size: clamp(17px, var(--font-base-size) + 2vw, 50px);
 }
 
 abbr {
@@ -62,7 +62,7 @@ abbr {
 }
 
 ul, li {
-  padding-left: 0;
+  padding: 0;
   list-style: none;
 }
 
@@ -73,7 +73,7 @@ li {
 header {
   background-color: rgb(19, 19, 22);
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-content: space-between;
   height: auto;
@@ -102,7 +102,6 @@ header {
 footer {
   margin-top: 2em;
   height: auto;
-  text-align: center;
   display: grid;
   grid-auto-flow: column;
   grid-column: 1/-1;
@@ -218,6 +217,7 @@ body {
   line-height: 1.88889;
   background: #fff url(image.jpg) fixed center;
   background-size: cover;
+  margin: auto 0;
 }
 body div {
   display: grid;
@@ -288,6 +288,9 @@ body div {
   body .wrapper {
     grid-template-columns: 1fr;
   }
+  body footer {
+    grid-auto-flow: row;
+  }
 }
 @media (max-width: 20em) {
   body {
@@ -296,6 +299,28 @@ body div {
     background-size: 400% 400%;
     height: 100%;
     width: 100%;
+  }
+  body header {
+    --font-base-size: 1.5em;
+    grid-template-columns: auto;
+    justify-content: center;
+    text-align: center;
+  }
+  body .page-wrapper {
+    margin: 0 auto;
+    width: 90%;
+  }
+  body .intro {
+    grid-template-columns: 1fr;
+  }
+  body .intro .summary, body .intro .preamble {
+    grid-column: 1/-1;
+  }
+  body .intro .summary h3, body .intro .preamble h3 {
+    text-align: initial;
+  }
+  body footer {
+    grid-auto-flow: row;
   }
 }
 

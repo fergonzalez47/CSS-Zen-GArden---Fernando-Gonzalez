@@ -50,12 +50,12 @@ a {
 p, li, a {
     font-family: variables.$font-jost;  
     --font-base-size: 0.12em;
-    font-size: clamp(13px, (var(--font-base-size) + 1.5vw), 36px);
+    font-size: clamp(14px, (var(--font-base-size) + 1.5vw), 36px);
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: variables.$font-koulen;
-    font-size: clamp(16px, (var(--font-base-size) + 2vw), 50px);
+    font-size: clamp(17px, (var(--font-base-size) + 2vw), 50px);
     
 }
 
@@ -64,7 +64,7 @@ abbr {
 }
 
 ul, li {
-    padding-left: 0;
+    padding: 0;
     list-style: none;
 }
 
