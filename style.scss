@@ -1,0 +1,181 @@
+/* css Zen Garden default style v1.02 */
+/* css released under Creative Commons License - http://creativecommons.org/licenses/by-nc-sa/1.0/  */
+
+/* This file based on 'Tranquille' by Dave Shea */
+/* You may use this file as a foundation for any new work, but you may find it easier to start from scratch. */
+/* Not all elements are defined in this file, so you'll most likely want to refer to the xhtml as well. */
+
+/* Your images should be linked as if the CSS file sits in the same folder as the images. ie. no paths. */
+
+
+/* basic elements */
+
+
+
+
+
+
+
+
+
+
+
+@use 'variables';
+@use 'atoms'; 
+@use 'molecules';
+@use 'organisms';
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Oleo+Script+Swash+Caps&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+
+
+
+/*MIXIN
+ 
+font-family: 'Oleo Script Swash Caps', cursive;
+*/
+
+
+@mixin media-query-header($width) {
+	header {
+		--font-base-size: 1.5em;
+		grid-template-columns: auto;
+		justify-content: center;
+		text-align: center;
+	}
+
+	.page-wrapper {
+		margin: 0 auto;
+		width: $width;
+	}
+	.intro {
+		grid-template-columns: 1fr;
+		.summary, .preamble {
+			grid-column: 1 / -1;
+			h3 {
+				text-align: initial;
+			}
+		}
+	}
+
+}
+
+
+
+//ANIMATIONS
+
+
+
+@keyframes background-gradient {
+	0% {
+	  background-position: 51% 0%;
+	}
+	50% {
+	  background-position: 50% 100%;
+	}
+	100% {
+	  background-position: 51% 0%;
+	}
+  }
+
+
+
+//set breakpoint sizes
+$break-small: 20em;
+$break-medium: 34em;
+$break-large: 60em;
+
+@mixin breakpoint($break) {
+
+	@if $break == large {
+		@media (max-width: $break-large) { @content; }
+	}
+	@else if $break == medium {
+		@media (max-width: $break-medium) { @content; }
+	}
+	@else if $break == small {
+		@media (max-width: $break-small) { @content; }
+	} @else {
+		@media ($break) { @content; }
+	}    
+}
+
+* {
+	box-sizing: border-box;
+  }
+
+html {
+	margin: 0;
+	padding: 0;
+	}
+
+body { 
+	font: 80% 'Lora', georgia, sans-serif;
+	line-height: 1.88889;
+	background: #fff url(image.jpg) fixed center; 
+	background-size: cover;
+
+	div {
+		display: grid;
+	}
+
+
+	@include breakpoint(large) { 
+
+		@include media-query-header(100%);
+
+		.main {
+			grid-template-columns: 1fr 1fr;
+			.benefits {
+				grid-column: 1 / 2;
+				grid-row: 3/ 4;
+			}
+			
+			.participation {
+				grid-column: 2 / 3;
+				grid-row: 3 / 4;
+			}
+			.requirements {
+				grid-column: 1 / -1;
+				grid-row: 2 / 3;
+			}
+
+		}
+
+		
+		
+	}
+
+	@include breakpoint(medium) { 
+		@include media-query-header(100%);
+		.main {
+			grid-template-columns: 1fr;
+			.benefits, .participation, .requirements {
+				grid-column: initial;
+				grid-row: initial;
+			}
+		}
+
+
+	}
+
+	 
+	@include breakpoint(small) {
+
+
+		animation: background-gradient 4s ease infinite;
+		background-image: linear-gradient(135deg, #50b1ac, variables.$heading-color);
+		background-size: 400% 400%;
+		height: 100%;
+		width: 100%;
+	}
+
+
+
+
+}
+

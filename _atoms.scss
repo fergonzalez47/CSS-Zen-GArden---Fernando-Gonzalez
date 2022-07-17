@@ -1,0 +1,73 @@
+@use 'variables';
+
+:root {
+    --font-base-size: 1em;
+}
+
+
+/*MIXINS*/
+
+
+@mixin basic-titles {
+    margin: 0 .5em;
+    color: variables.$heading-color;
+}
+
+
+h1 {
+
+    font-family: variables.$font-bebas;
+    @include basic-titles;
+}
+
+h2 {
+    @include basic-titles;   
+}
+
+a {
+    text-decoration: none;
+    background-image: linear-gradient(rgba(255, 255, 255, 0) 50%, variables.$heading-color 50%);
+	background-size: auto 190%;
+	transition: background .3s ease-in-out;
+
+    text-transform: uppercase;
+    &:link {
+        color: rgb(143, 233, 233);
+    }
+    &:visited {
+        color: rgb(220, 86, 113);
+    }
+    &:hover {
+        transition: 0.5s;
+        background-position-y: 100%;	
+        color: variables.$primary-color;
+    }
+    &:active {
+        color:beige;
+    }
+}
+
+p, li, a {
+    font-family: variables.$font-jost;  
+    --font-base-size: 0.12em;
+    font-size: clamp(13px, (var(--font-base-size) + 1.5vw), 36px);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: variables.$font-koulen;
+    font-size: clamp(16px, (var(--font-base-size) + 2vw), 50px);
+    
+}
+
+abbr {
+    font-style: italic;
+}
+
+ul, li {
+    padding-left: 0;
+    list-style: none;
+}
+
+li {
+    list-style: none;
+}
