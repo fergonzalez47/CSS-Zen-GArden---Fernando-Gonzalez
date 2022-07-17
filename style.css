@@ -285,6 +285,9 @@ body div {
     grid-column: initial;
     grid-row: initial;
   }
+  body .wrapper {
+    grid-template-columns: 1fr;
+  }
 }
 @media (max-width: 20em) {
   body {
